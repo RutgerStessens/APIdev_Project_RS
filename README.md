@@ -1,82 +1,95 @@
-# Music API Documentation
+# Music Library API Documentation
 
-Welcome to the documentation of the Music API! This API allows you to interact with a database containing information about music artists, albums, and songs.
+Welcome to the documentation for the **Music Library API**. This API allows you to manage information about music artists, albums, and songs. You can interact with the API using HTTP requests.
 
-## Getting Started
+## Table of Contents
 
-To get started using the Music API, you need to have Python and FastAPI installed on your system. Additionally, you'll need the SQLite database engine.
+- [Introduction](#introduction)
+- [Endpoints](#endpoints)
+  - [Get All Artists](#get-all-artists)
+  - [Get Artist and Albums](#get-artist-and-albums)
+  - [Get Song and Album Details](#get-song-and-album-details)
+  - [Get All Albums with Artist Names](#get-all-albums-with-artist-names)
+  - [Add a New Artist](#add-a-new-artist)
+  - [Update an Album](#update-an-album)
+  - [Delete a Song](#delete-a-song)
+- [Data Models](#data-models)
+- [Database Setup](#database-setup)
 
-1. Install dependencies:
-pip install fastapi
-pip install uvicorn
-pip install sqlalchemy
+## Introduction
 
-3. Start the FastAPI server:
-uvicorn main:app --host 0.0.0.0 --port 8000
-
+The Music Library API provides endpoints to interact with music genres, artists, albums, and songs. It is built using the FastAPI framework and SQLAlchemy for database management.
 
 ## Endpoints
 
-### Authentication
+### Get All Artists
 
-Before using the API endpoints, you need to authenticate to get an access token. Use the `/token` endpoint to obtain an access token by providing your username and password. This access token will be required for subsequent requests.
+Endpoint: `GET /artists`
 
-### Available Endpoints
+Retrieve a list of all music artists.
 
-- **GET /artists**
-- Description: Get a list of all music artists.
-- Authentication: Required
-- Response: List of artist objects containing id, name, and genre.
+### Get Artist and Albums
 
-- **GET /artists/{artist_id}**
-- Description: Get detailed information about a specific artist including their albums.
-- Authentication: Required
-- Parameters: artist_id (int) - ID of the artist.
-- Response: Artist object containing id, name, genre, and albums.
+Endpoint: `GET /artists/{artist_id}`
 
-- **GET /songs/{song_id}**
-- Description: Get information about a specific song including its album and artist.
-- Authentication: Required
-- Parameters: song_id (int) - ID of the song.
-- Response: Song details object containing song, album, and artist information.
+Retrieve information about a specific artist, including their albums.
 
-- **GET /albums**
-- Description: Get a list of all albums with associated artist names.
-- Authentication: Required
-- Response: List of album objects containing id, title, artist_id, and artist_name.
+### Get Song and Album Details
 
-- **POST /artists**
-- Description: Add a new artist to the database.
-- Authentication: Required
-- Request Body: Artist object containing name and genre.
-- Response: New artist object with generated id.
+Endpoint: `GET /songs/{song_id}`
 
-- **PUT /albums/{album_id}**
-- Description: Update an existing album's title and artist.
-- Authentication: Required
-- Parameters: album_id (int) - ID of the album.
-- Request Body: Album object containing title and artist_id.
-- Response: Updated album object.
+Retrieve details about a specific song, including the album it belongs to and the artist.
 
-- **DELETE /songs/{song_id}**
-- Description: Delete a song from the database.
-- Authentication: Required
-- Parameters: song_id (int) - ID of the song.
-- Response: Deleted song object.
+### Get All Albums with Artist Names
 
-## Security
+Endpoint: `GET /albums`
 
-This API uses OAuth2 authentication to secure endpoints. You need to obtain an access token using the `/token` endpoint and include it in the `Authorization` header of your requests.
+Retrieve a list of all albums along with the names of their respective artists.
 
-## Data Model
+### Add a New Artist
 
-The API is based on three main entities:
+Endpoint: `POST /artists`
 
-- **Artist**: Represents a music artist with attributes id, name, genre, and albums.
-- **Album**: Represents an album with attributes id, title, artist_id, and songs.
-- **Song**: Represents a song with attributes id, title, and album_id.
+Add a new artist to the music library. Provide the artist's name and genre in the request.
 
-## Notes
+### Update an Album
 
-- This API is designed for educational purposes and may not include all security measures required for production environments.
-- Replace "your-secret-key" with an actual secret key for token generation.
+Endpoint: `PUT /albums/{album_id}`
+
+Update the details of an existing album. Provide the new title and artist ID in the request.
+
+### Delete a Song
+
+Endpoint: `DELETE /songs/{song_id}`
+
+Delete a song from the music library.
+
+## Data Models
+
+The following data models are used to structure the API's data:
+
+### Artist
+
+- `id`: Artist's unique identifier
+- `name`: Artist's name
+- `genre`: Artist's genre
+
+### Album
+
+- `id`: Album's unique identifier
+- `title`: Album's title
+- `artist_id`: ID of the artist associated with the album
+
+### Song
+
+- `id`: Song's unique identifier
+- `title`: Song's title
+- `album_id`: ID of the album the song belongs to
+
+## Database Setup
+
+The API uses an SQLite database for storing music library data. The SQLAlchemy library is used for database management.
+
+The database setup is performed automatically. Tables are created for artists, albums, and songs when the application starts.
+
+Please note that this is a basic documentation overview. For more detailed information and examples of how to use each endpoint, refer to the API implementation.
