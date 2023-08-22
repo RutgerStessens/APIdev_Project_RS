@@ -1,6 +1,6 @@
-# Music Library API Documentation
+# My Music Library API Documentation
 
-Welcome to the documentation for the **Music Library API**. This API allows you to manage information about music artists, albums, and songs. You can interact with the API using HTTP requests.
+Welcome to the documentation for **My Music Library API**. This API allows me to manage information about music genres, artists, albums, and songs. I can interact with the API using HTTP requests.
 
 ## Table of Contents
 
@@ -18,78 +18,78 @@ Welcome to the documentation for the **Music Library API**. This API allows you 
 
 ## Introduction
 
-The Music Library API provides endpoints to interact with music genres, artists, albums, and songs. It is built using the FastAPI framework and SQLAlchemy for database management.
+My Music Library API provides endpoints for me to interact with music genres, artists, albums, and songs. I've built this API using the FastAPI framework and SQLAlchemy for database management.
 
 ## Endpoints
 
 ### Get All Artists
 
-Endpoint: `GET /artists`
+**Endpoint:** `GET /artists`
 
-Retrieve a list of all music artists.
+I can retrieve a list of all music artists.
 
 ### Get Artist and Albums
 
-Endpoint: `GET /artists/{artist_id}`
+**Endpoint:** `GET /artists/{artist_id}`
 
-Retrieve information about a specific artist, including their albums.
+I can retrieve information about a specific artist, including their albums.
 
 ### Get Song and Album Details
 
-Endpoint: `GET /songs/{song_id}`
+**Endpoint:** `GET /songs/{song_id}`
 
-Retrieve details about a specific song, including the album it belongs to and the artist.
+I can retrieve details about a specific song, including the album it belongs to and the artist.
 
 ### Get All Albums with Artist Names
 
-Endpoint: `GET /albums`
+**Endpoint:** `GET /albums`
 
-Retrieve a list of all albums along with the names of their respective artists.
+I can retrieve a list of all albums along with the names of their respective artists.
 
 ### Add a New Artist
 
-Endpoint: `POST /artists`
+**Endpoint:** `POST /artists`
 
-Add a new artist to the music library. Provide the artist's name and genre in the request.
+I can add a new artist to my music library. I need to provide the artist's name and genre in the request.
 
 ### Update an Album
 
-Endpoint: `PUT /albums/{album_id}`
+**Endpoint:** `PUT /albums/{album_id}`
 
-Update the details of an existing album. Provide the new title and artist ID in the request.
+I can update the details of an existing album. I need to provide the new title and artist ID in the request.
 
 ### Delete a Song
 
-Endpoint: `DELETE /songs/{song_id}`
+**Endpoint:** `DELETE /songs/{song_id}`
 
-Delete a song from the music library.
+I can delete a song from my music library.
 
 ## Data Models
 
-The following data models are used to structure the API's data:
+I've structured my API's data using the following data models:
 
 ### Artist
 
-- `id`: Artist's unique identifier
-- `name`: Artist's name
-- `genre`: Artist's genre
+- `id`: The artist's unique identifier
+- `name`: The artist's name
+- `genre`: The artist's genre
 
 ### Album
 
-- `id`: Album's unique identifier
-- `title`: Album's title
-- `artist_id`: ID of the artist associated with the album
+- `id`: The album's unique identifier
+- `title`: The album's title
+- `artist_id`: The ID of the artist associated with the album
 
 ### Song
 
-- `id`: Song's unique identifier
-- `title`: Song's title
-- `album_id`: ID of the album the song belongs to
+- `id`: The song's unique identifier
+- `title`: The song's title
+- `album_id`: The ID of the album the song belongs to
 
 ## Database Setup
 
-The API uses an SQLite database for storing music library data. The SQLAlchemy library is used for database management.
+My API uses an SQLite database for storing music library data. I've leveraged the SQLAlchemy library for database management.
 
-The database setup is performed automatically. Tables are created for artists, albums, and songs when the application starts.
+The database setup occurs automatically when the application starts. Tables are created for artists, albums, and songs.
 
-Please note that this is a basic documentation overview. For more detailed information and examples of how to use each endpoint, refer to the API implementation.
+Please note that this is a basic overview of my documentation. For more in-depth information and examples on how to use each endpoint, refer to my API's implementation.
