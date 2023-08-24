@@ -1,6 +1,6 @@
-# My Music Library API Documentation
+# Music API Documentation
 
-Welcome to the documentation for **My Music Library API**. This API allows me to manage information about music genres, artists, albums, and songs. I can interact with the API using HTTP requests.
+Welcome to my documentation for **My Music Library API**. This API allows you to manage information about music genres, artists, albums, and songs. You can interact with the API using HTTP requests to perform various actions on your music library.
 
 ## Table of Contents
 
@@ -15,10 +15,12 @@ Welcome to the documentation for **My Music Library API**. This API allows me to
   - [Delete a Song](#delete-a-song)
 - [Data Models](#data-models)
 - [Database Setup](#database-setup)
+- [Running the API](#running-the-api)
+- [Examples](#examples)
 
 ## Introduction
 
-My Music Library API provides endpoints for me to interact with music genres, artists, albums, and songs. I've built this API using the FastAPI framework and SQLAlchemy for database management.
+My Music Library API provides endpoints for interacting with music genres, artists, albums, and songs. This API is built using the FastAPI framework and utilizes SQLAlchemy for database management.
 
 ## Endpoints
 
@@ -26,70 +28,74 @@ My Music Library API provides endpoints for me to interact with music genres, ar
 
 **Endpoint:** `GET /artists`
 
-I can retrieve a list of all music artists.
+Retrieves a list of all music artists in the library.
 
 ### Get Artist and Albums
 
 **Endpoint:** `GET /artists/{artist_id}`
 
-I can retrieve information about a specific artist, including their albums.
+Retrieves detailed information about a specific artist, including their albums.
 
 ### Get Song and Album Details
 
 **Endpoint:** `GET /songs/{song_id}`
 
-I can retrieve details about a specific song, including the album it belongs to and the artist.
+Retrieves detailed information about a specific song, including the album it belongs to and the artist.
 
 ### Get All Albums with Artist Names
 
 **Endpoint:** `GET /albums`
 
-I can retrieve a list of all albums along with the names of their respective artists.
+Retrieves a list of all albums in the library, along with the names of their respective artists.
 
 ### Add a New Artist
 
 **Endpoint:** `POST /artists`
 
-I can add a new artist to my music library. I need to provide the artist's name and genre in the request.
+Adds a new artist to the music library. Requires providing the artist's name and genre in the request.
 
 ### Update an Album
 
 **Endpoint:** `PUT /albums/{album_id}`
 
-I can update the details of an existing album. I need to provide the new title and artist ID in the request.
+Updates the details of an existing album. Requires providing the new title and artist ID in the request.
 
 ### Delete a Song
 
 **Endpoint:** `DELETE /songs/{song_id}`
 
-I can delete a song from my music library.
+Deletes a song from the music library.
 
 ## Data Models
 
-I've structured my API's data using the following data models:
+The API's data is structured using the following data models:
 
 ### Artist
 
-- `id`: The artist's unique identifier
-- `name`: The artist's name
-- `genre`: The artist's genre
+- `id`: Unique identifier for the artist
+- `name`: Name of the artist
+- `genre`: Genre of the artist's music
 
 ### Album
 
-- `id`: The album's unique identifier
-- `title`: The album's title
-- `artist_id`: The ID of the artist associated with the album
+- `id`: Unique identifier for the album
+- `title`: Title of the album
+- `artist_id`: ID of the artist associated with the album
 
 ### Song
 
-- `id`: The song's unique identifier
-- `title`: The song's title
-- `album_id`: The ID of the album the song belongs to
+- `id`: Unique identifier for the song
+- `title`: Title of the song
+- `album_id`: ID of the album to which the song belongs
 
 ## Database Setup
 
-My API uses an SQLite database for storing music library data. I've leveraged the SQLAlchemy library for database management.
+The API uses an SQLite database for storing music library data. Tables for artists, albums, and songs are automatically created when the application starts.
 
-The database setup occurs automatically when the application starts. Tables are created for artists, albums, and songs.
 
-Please note that this is a basic overview of my documentation. For more in-depth information and examples on how to use each endpoint, refer to my API's implementation.
+## Running the API
+
+You can run the API using the following command:
+
+```bash
+uvicorn main:app --reload
